@@ -49,7 +49,7 @@ public class MainController {
     	   mav.setViewName("Login");
        }	
        else {
-    	   mav.setViewName("Mostrar");
+    	   mav.setViewName("Main");
        }
 		return mav;
 	}

@@ -118,12 +118,12 @@ span.clave {
 }
 </style>
 </head>
-<body>
+<body style="background:linear-gradient(to right, darkblue ,cyan)">
+<div style="width:7%; margin-left: auto; margin-right: auto">
+<h1>Login</h1>
 
-<h2>Modal Login Form</h2>
-
-<button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
-
+<button onclick="document.getElementById('id01').style.display='block'" style="background:blue">Login</button>
+</div>
 <div id="id01" class="modal">
   
   <form:form class="modal-content animate" action="${pageContext.request.contextPath}/Login" method="post" modelAttribute="loginDTO">

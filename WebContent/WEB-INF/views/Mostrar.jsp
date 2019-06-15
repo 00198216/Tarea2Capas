@@ -8,8 +8,8 @@
 <meta charset="ISO-8859-1">
 <title>Test</title>
 </head>
-<body>
-<div style="background:purple; width:35%; margin-left: auto; margin-right: auto">
+<body >
+<div style=" width:35%; margin-left: auto; margin-right: auto">
 
  <table border="1"  style="background:cyan; margin-left: auto; margin-right: auto">
        <tr>
