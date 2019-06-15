@@ -1,5 +1,6 @@
 package com.uca.capas.domain;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -41,7 +42,7 @@ public class Sucursal {
 	@Column(name="nomGerente")
     private String nomGerente;
 	
-	@OneToMany(mappedBy="sucursal",fetch= FetchType.LAZY)
+	@OneToMany(mappedBy="sucursal",fetch= FetchType.LAZY,orphanRemoval=true,cascade=CascadeType.PERSIST)
 	private List<Empleado> empleados;
 	
 	public String getnewHour(){

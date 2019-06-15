@@ -11,4 +11,7 @@ import com.uca.capas.domain.Sucursal;
 public interface SucursalService {
 
 	public List<Sucursal> findALL() throws DataAccessException;
+	
+	public Sucursal findBYID(int id) throws DataAccessException;;
+	public int deleteByID(int id) throws DataAccessException;;
 }

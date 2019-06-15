@@ -10,11 +10,11 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.domain.Empleado;
 import com.uca.capas.domain.Sucursal;
-import com.uca.capas.domain.Usuario;
 import com.uca.capas.dto.logingDTO;
 import com.uca.capas.services.EmpleadoService;
 import com.uca.capas.services.SucursalService;
@@ -49,27 +49,43 @@ public class MainController {
     	   mav.setViewName("Login");
        }	
        else {
-    	   mav.setViewName("Main");
+    	   List<Sucursal> sucursal = null;
+    	   sucursal = service2.findALL();
+    	   mav.addObject("sucursal", sucursal);
+    	   mav.setViewName("Mostrar");
+    	   
        }
 		return mav;
 	}
-	@RequestMapping("/Mostrar")
-	public ModelAndView Show(){
-		ModelAndView mav = new ModelAndView();
-		List<Usuario> usuario = null;
-		List<Sucursal> sucursal = null;
-		List<Empleado> empleado= null;
 	
-		usuario = service1.findALL();
-		sucursal= service2.findALL();
-		empleado= service3.findALL();
+	@RequestMapping(value="/Perfil",method= RequestMethod.POST)
+	public ModelAndView Ver(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();
 		
+		Sucursal sucursal=null;
+		sucursal=service2.findBYID(id);
 		
-		mav.addObject("usuario", usuario);
-		mav.addObject("sucursal", sucursal);
-		mav.addObject("empleado", empleado);
-		mav.setViewName("Mostrar");
+		List<Empleado> empleado = null;
+ 	     empleado = service3.findOne(id);
 		
+ 	    mav.addObject("empleado", empleado);
+  	     mav.addObject("sucursal", sucursal);
+		 mav.setViewName("Main");
 		return mav;
 	}
+	
+	@RequestMapping(value="/Delete",method= RequestMethod.POST)
+	public ModelAndView Delete(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();	
+		service2.deleteByID(id);
+		 List<Sucursal> sucursal = null;
+  	     sucursal = service2.findALL();
+  	     mav.addObject("sucursal", sucursal);
+		 mav.setViewName("Mostrar");
+		return mav;
+	}
+	
+	
+	
+	
 }

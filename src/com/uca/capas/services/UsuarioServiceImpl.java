@@ -21,7 +21,7 @@ public class UsuarioServiceImpl implements UsuarioService {
 	}
 	
 	@Override
-	public Usuario findUsuarioyContraseña(String correo, String clave) {
+	public Usuario findUsuarioyContraseña(String correo, String clave) throws DataAccessException {
 		return User.findUsuarioyContraseña(correo,clave);
 	}
 

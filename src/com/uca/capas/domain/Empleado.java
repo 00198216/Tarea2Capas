@@ -45,6 +45,14 @@ public class Empleado {
 			return "No Activo";
 			}
 		}
+	public String getGenderE() {
+		if(this.Genero) {
+		return "M";
+	               }
+		else {
+			return "F";
+			}
+		}
 
 	public Integer getIdEmpleado() {
 		return IdEmpleado;

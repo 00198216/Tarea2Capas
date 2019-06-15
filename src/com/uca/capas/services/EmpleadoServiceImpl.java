@@ -23,4 +23,11 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 	}
 
 
+	@Override
+	public List<Empleado> findOne(int id) throws DataAccessException {
+		// TODO Auto-generated method stub
+		return Empleado.findOne(id);
+	}
+
+
 }

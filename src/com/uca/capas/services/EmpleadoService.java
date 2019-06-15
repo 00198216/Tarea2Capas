@@ -12,5 +12,7 @@ import com.uca.capas.domain.Empleado;
 public interface EmpleadoService {
 	
 	public List<Empleado> findALL() throws DataAccessException;
+	
+	public List<Empleado> findOne(int id) throws DataAccessException;
 
 }

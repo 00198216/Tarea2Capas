@@ -12,6 +12,6 @@ public interface UsuarioService {
 	
 	public List<Usuario> findALL() throws DataAccessException;
 	
-    public Usuario findUsuarioyContraseña(String correo, String clave);
+    public Usuario findUsuarioyContraseña(String correo, String clave) throws DataAccessException;;
 
 }

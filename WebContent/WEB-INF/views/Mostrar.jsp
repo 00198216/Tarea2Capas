@@ -6,31 +6,12 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Test</title>
+<title>Sucursales</title>
 </head>
 <body >
-<div style=" width:35%; margin-left: auto; margin-right: auto">
 
- <table border="1"  style="background:cyan; margin-left: auto; margin-right: auto">
-       <tr>
-           <th>Nombre</th>
-           <th>Contraseña</th>
-           
-       </tr>
-       
-    
-       <c:forEach items="${usuario}" var="usuario">
-         <tr>
-           <th>${usuario.nombreU}</th>
-           <th>${usuario.clave}</th>
-        
-           
-       </tr>
-       </c:forEach>
-       
-  </table>
 <br>
-<table border="1"  style="background:cyan; margin-left: auto; margin-right: auto">
+<table border="1" >
        <tr>
            <th>Nombre</th>
            <th>Entrada</th>
@@ -50,6 +31,21 @@
            <th>${sucursal.ubicacion}</th>
            <th>${sucursal.nMesas}</th>
            <th>${sucursal.nomGerente}</th>
+           
+           <th><form  name="form1" action="${pageContext.request.contextPath}/Perfil" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
+            <INPUT TYPE="Submit" VALUE="Ver Perfil">
+           </form></th>
+           
+           <th><form  name="form2" action="${pageContext.request.contextPath}/Edit" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
+            <INPUT TYPE="Submit" VALUE="Editar">
+           </form></th>
+           
+           <th><form  name="form3" action="${pageContext.request.contextPath}/Delete" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
+            <INPUT TYPE="Submit" VALUE="Borrar">
+           </form></th>
         
            
        </tr>
@@ -58,31 +54,6 @@
 
   </table>
   <br>
-<br>
-  <table border="1"  style="background:cyan; margin-left: auto; margin-right: auto">
-       <tr>
-           <th>Nombre</th>
-           <th>Edad</th>
-           <th>Genero</th>
-           <th>Estado</th>
-           <th>Sucursal</th>
-     
-       </tr>
-       
-    
-       <c:forEach items="${empleado}" var="empleado">
-         <tr>
-           <th>${empleado.nombreE}</th>
-           <th>${empleado.edad}</th>
-           <th>${empleado.genero}</th>
-           <th>${empleado.estadoE}</th>
-           <th>${empleado.sucursal.nombreS}</th>
-        
-           
-       </tr>
-       </c:forEach>
-       
-  </table>
 
 </div>
 </body>
