@@ -18,7 +18,7 @@ public void onStartup(ServletContext container) throws ServletException {
 	  ctx.register(SpringConfiguration.class);
 	  ctx.setServletContext(container);
 	  
-	  ServletRegistration.Dynamic servlet= container.addServlet("TareaCapas",new DispatcherServlet(ctx));
+	  ServletRegistration.Dynamic servlet= container.addServlet("Tarea2Capas",new DispatcherServlet(ctx));
 	  
 	  servlet.addMapping("/");
 	  servlet.setLoadOnStartup(1);

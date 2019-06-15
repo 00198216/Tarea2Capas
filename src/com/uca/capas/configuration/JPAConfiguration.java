@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(basePackages = "com.uca.capas.domain")
+@EnableJpaRepositories(basePackages = "com.uca.capas.repositories")
 public class JPAConfiguration {
 	
 	@Bean
@@ -58,6 +58,7 @@ public class JPAConfiguration {
 		properties.setProperty("hibernate.show_sql", "true");
 		properties.setProperty("hibernate.dialect",
 		"org.hibernate.dialect.PostgreSQLDialect");
+		properties.setProperty("hibernate.enable_lazy_load_no_trans", "true");
 		return properties;
 		}
 
