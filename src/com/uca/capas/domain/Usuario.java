@@ -8,6 +8,7 @@ import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+
 @Entity
 @Table(schema="public",name="Usuario")
 public class Usuario {
@@ -16,13 +17,16 @@ public class Usuario {
 	@GeneratedValue(generator="usuario_idusuario_seq",strategy= GenerationType.AUTO)
 	@SequenceGenerator(name="usuario_idusuario_seq",sequenceName= "public.usuario_idusuario_seq",allocationSize=1)
     @Column(name="id_Usuario")
-    private Integer IdUsuario ;
-	 
-	 @Column(name="nombreU")
+    private Integer IdUsuario;
+
+	@Column(name="nombreU")
      private String NombreU;
 	 
+	 @Column(name="correo")
+     private String Correo;
+	 
 	 @Column(name="clave")
-    private String Clave;
+     private String Clave;
 
 	public Integer getIdUsuario() {
 		return IdUsuario;
@@ -47,5 +51,13 @@ public class Usuario {
 	public void setClave(String clave) {
 		Clave = clave;
 	}
+	
+	 public String getCorreo() {
+			return Correo;
+		}
+
+		public void setCorreo(String correo) {
+			Correo = correo;
+		}
 	 
 }

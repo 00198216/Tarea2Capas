@@ -11,5 +11,7 @@ import com.uca.capas.domain.Usuario;
 public interface UsuarioService {
 	
 	public List<Usuario> findALL() throws DataAccessException;
+	
+    public Usuario findUsuarioyContraseña(String correo, String clave);
 
 }

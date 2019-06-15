@@ -19,5 +19,10 @@ public class UsuarioServiceImpl implements UsuarioService {
 	public List<Usuario> findALL() throws DataAccessException {
 		return User.findAll();
 	}
+	
+	@Override
+	public Usuario findUsuarioyContraseña(String correo, String clave) {
+		return User.findUsuarioyContraseña(correo,clave);
+	}
 
 }
