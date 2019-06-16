@@ -10,15 +10,14 @@
 </head>
 <body >
 
+   <form  name="add" action="${pageContext.request.contextPath}/Add" method="post">
+            <INPUT TYPE="Submit" VALUE="Agregar Sucursal">
+           </form>
 <br>
 <table border="1" >
        <tr>
            <th>Nombre</th>
-           <th>Entrada</th>
-           <th>Salida</th>
-           <th>Ubicacion</th>
-           <th>Mesas</th>
-           <th>Nombre Gerente</th>
+         
            
        </tr>
        
@@ -26,11 +25,7 @@
        <c:forEach items="${sucursal}" var="sucursal">
          <tr>
            <th>${sucursal.nombreS}</th>
-           <th>${sucursal.newHour}</th>
-           <th>${sucursal.newHour2}</th>
-           <th>${sucursal.ubicacion}</th>
-           <th>${sucursal.nMesas}</th>
-           <th>${sucursal.nomGerente}</th>
+    
            
            <th><form  name="form1" action="${pageContext.request.contextPath}/Perfil" method="post">
             <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
@@ -40,11 +35,6 @@
            <th><form  name="form2" action="${pageContext.request.contextPath}/Edit" method="post">
             <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
             <INPUT TYPE="Submit" VALUE="Editar">
-           </form></th>
-           
-           <th><form  name="form3" action="${pageContext.request.contextPath}/AddE" method="post">
-            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
-            <INPUT TYPE="Submit" VALUE="Agregar Empleado">
            </form></th>
            
            <th><form  name="form3" action="${pageContext.request.contextPath}/Delete" method="post">

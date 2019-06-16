@@ -75,6 +75,19 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/Return",method= RequestMethod.POST)
+	public ModelAndView back(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();
+		
+		List<Sucursal> sucursal=null;
+		sucursal=service2.findALL();
+		
+  	     mav.addObject("sucursal", sucursal);
+		 mav.setViewName("Mostrar");
+		return mav;
+	}
+	
+	
 	@RequestMapping(value="/Delete",method= RequestMethod.POST)
 	public ModelAndView Delete(@RequestParam(value="id") int id){
 		ModelAndView mav = new ModelAndView();	
@@ -96,7 +109,7 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/SaveE",method= RequestMethod.POST)
-	public ModelAndView Edit(@Valid @ModelAttribute("sucursalDTO") SucursalDTO sucursalDTO ,BindingResult result){
+	public ModelAndView Edit2(@Valid @ModelAttribute("sucursalDTO") SucursalDTO sucursalDTO ,BindingResult result){
 		ModelAndView mav = new ModelAndView();	
 		
 		if(result.hasErrors()) {
@@ -115,5 +128,31 @@ public class MainController {
 	}
 	
 	
+	@RequestMapping(value="/Add",method= RequestMethod.POST)
+	public ModelAndView Add(){
+		ModelAndView mav = new ModelAndView();	
+  	   mav.addObject("sucursalDTO2",new SucursalDTO());
+		 mav.setViewName("Agregar");
+		return mav;
+	}
+	
+	@RequestMapping(value="/SaveA",method= RequestMethod.POST)
+	public ModelAndView Add2(@Valid @ModelAttribute("sucursalDTO2") SucursalDTO sucursalDTO2 ,BindingResult result){
+		ModelAndView mav = new ModelAndView();	
+		
+		if(result.hasErrors()) {
+	    	mav.setViewName("Agregar");
+	       }	
+		
+		else {
+			service2.Add(sucursalDTO2);
+			 List<Sucursal> sucursal = null;
+	  	     sucursal = service2.findALL();
+	  	     mav.addObject("sucursal", sucursal);
+			mav.setViewName("Mostrar");
+		}
+		
+		return mav;
+	}
 	
 }

@@ -44,7 +44,7 @@ public class SucursalDTO {
 		}
 		else {
 			int hora = Integer.parseInt(HoraE.substring(0,2));
-			int min = Integer.parseInt(HoraE.substring(0,2));
+			int min = Integer.parseInt(HoraE.substring(3,5));
 			Time HourE = new Time(hora,min,00);
 			return HourE;
 			}
@@ -56,7 +56,7 @@ public class SucursalDTO {
 		}
 		else {
 			int hora = Integer.parseInt(HoraS.substring(0,2));
-			int min = Integer.parseInt(HoraS.substring(0,2));
+			int min = Integer.parseInt(HoraS.substring(3,5));
 			Time HourS = new Time(hora,min,00);
 			return HourS;
 			}

@@ -20,8 +20,8 @@ import java.util.List;
 public class Sucursal {
 	
 	@Id 
-	@GeneratedValue(generator="sucursal_idsucursal_seq",strategy= GenerationType.AUTO)
-	@SequenceGenerator(name="sucursal_idsucursal_seq",sequenceName= "public.sucursal_idsucursal_seq",allocationSize=1)
+	@GeneratedValue(generator="sucursal_id_sucursal_seq",strategy= GenerationType.AUTO)
+	@SequenceGenerator(name="sucursal_id_sucursal_seq",sequenceName= "public.sucursal_id_sucursal_seq",allocationSize=1)
     @Column(name="id_Sucursal")
     private Integer IdSucursal ;
 	

@@ -77,4 +77,20 @@ public class SucursalServiceImpl implements SucursalService {
 		
 	}
 
+	@Override
+	@Transactional
+	public int Add(SucursalDTO S) throws DataAccessException {
+		Sucursal sucursal= new Sucursal();
+		sucursal.setNombreS(S.getNombreS());
+		sucursal.setHoraE(S.getHourE());
+		sucursal.setHoraS(S.getHourS());
+		sucursal.setUbicacion(S.getUbicacion());
+		sucursal.setnMesas(S.getnMesas());
+		sucursal.setNomGerente(S.getNomGerente());
+		entityManager.persist(sucursal);
+		entityManager.flush();
+		
+		return 1;
+	}
+
 }

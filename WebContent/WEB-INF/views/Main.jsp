@@ -64,6 +64,13 @@
        </tr>
        </c:forEach>
        </table>
+       
+       <br>
+       
+       <form  name="back" action="${pageContext.request.contextPath}/Return" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
+            <INPUT TYPE="Submit" VALUE="Return">
+        </form>
 
 </body>
 </html>

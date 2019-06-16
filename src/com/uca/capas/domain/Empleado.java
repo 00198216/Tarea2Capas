@@ -15,8 +15,8 @@ import javax.persistence.Table;
 @Table(schema="public",name="Empleado")
 public class Empleado {
 	@Id 
-	@GeneratedValue(generator="empleado_idempleado_seq",strategy= GenerationType.AUTO)
-	@SequenceGenerator(name="empleado_idempleado_seq",sequenceName= "public.empleado_idempleado_seq",allocationSize=1)
+	@GeneratedValue(generator="empleado_id_empleado_seq",strategy= GenerationType.AUTO)
+	@SequenceGenerator(name="empleado_id_empleado_seq",sequenceName= "public.empleado_id_empleado_seq",allocationSize=1)
     @Column(name="id_Empleado")
     private Integer IdEmpleado ;
 	 
@@ -47,10 +47,10 @@ public class Empleado {
 		}
 	public String getGenderE() {
 		if(this.Genero) {
-		return "M";
+		return "Masculino";
 	               }
 		else {
-			return "F";
+			return "Femenino";
 			}
 		}
 

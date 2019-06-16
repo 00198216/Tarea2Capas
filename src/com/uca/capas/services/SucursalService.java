@@ -17,4 +17,5 @@ public interface SucursalService {
 	public int deleteByID(int id) throws DataAccessException;
 	public SucursalDTO MapDTO(int id) throws DataAccessException;
 	public int Update(SucursalDTO S) throws DataAccessException;
+	public int Add(SucursalDTO S) throws DataAccessException;
 }

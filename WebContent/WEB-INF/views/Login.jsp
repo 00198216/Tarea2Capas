@@ -120,7 +120,7 @@ span.clave {
 </head>
 <body style="background:linear-gradient(to right, darkblue ,cyan)">
 <div style="width:7%; margin-left: auto; margin-right: auto">
-<h1>Login</h1>
+<h1 style="padding-left:4px">Login</h1>
 
 <button onclick="document.getElementById('id01').style.display='block'" style="background:blue">Login</button>
 </div>
