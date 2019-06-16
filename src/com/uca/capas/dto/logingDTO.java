@@ -9,11 +9,11 @@ public class logingDTO {
 
 	@NotEmpty(message="El correo es requerido")
 	@Email
-	@Size(message="Ha pasado el maximo de 30 caracteres",max=100)
+	@Size(message="Ha pasado el maximo de 30 caracteres",max=30)
     private String correo;
 	 
 	 @NotEmpty(message="La contraseña es requerida")
-	 @Size(message="Ha pasado el maximo de 30 caracteres",max=100)
+	 @Size(message="Ha pasado el maximo de 30 caracteres",max=30)
      private String clave;
 
 	public String getCorreo() {

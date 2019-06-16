@@ -10,6 +10,7 @@ import org.springframework.dao.DataAccessException;
 import org.springframework.stereotype.Service;
 
 import com.uca.capas.domain.Sucursal;
+import com.uca.capas.dto.SucursalDTO;
 import com.uca.capas.repositories.SucursalRepository;
 
 @Service
@@ -44,6 +45,36 @@ public class SucursalServiceImpl implements SucursalService {
 		Sucursal sucursal=null;
 		   sucursal= Sucursal.findOne(id);
 		   return sucursal;
+	}
+
+	@Override
+	public SucursalDTO MapDTO(int id) throws DataAccessException {
+		Sucursal S= Sucursal.findOne(id);
+		SucursalDTO Suc= new SucursalDTO();
+		Suc.setIdSucursal(S.getIdSucursal());
+		Suc.setNombreS(S.getNombreS());
+		Suc.setHoraE(S.getnewHour());
+		Suc.setHoraS(S.getnewHour2());
+		Suc.setUbicacion(S.getUbicacion());
+		Suc.setnMesas(S.getnMesas());
+		Suc.setNomGerente(S.getNomGerente());
+		return Suc;
+	}
+
+	@Override
+	@Transactional
+	public int Update(SucursalDTO S) throws DataAccessException {
+		Sucursal sucursal= Sucursal.findOne(S.getIdSucursal());
+		sucursal.setNombreS(S.getNombreS());
+		sucursal.setHoraE(S.getHourE());
+		sucursal.setHoraS(S.getHourS());
+		sucursal.setUbicacion(S.getUbicacion());
+		sucursal.setnMesas(S.getnMesas());
+		sucursal.setNomGerente(S.getNomGerente());
+		entityManager.merge(sucursal);
+		entityManager.flush();
+		return 1;
+		
 	}
 
 }

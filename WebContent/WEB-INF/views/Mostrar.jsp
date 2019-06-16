@@ -42,6 +42,11 @@
             <INPUT TYPE="Submit" VALUE="Editar">
            </form></th>
            
+           <th><form  name="form3" action="${pageContext.request.contextPath}/AddE" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
+            <INPUT TYPE="Submit" VALUE="Agregar Empleado">
+           </form></th>
+           
            <th><form  name="form3" action="${pageContext.request.contextPath}/Delete" method="post">
             <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
             <INPUT TYPE="Submit" VALUE="Borrar">
@@ -55,6 +60,5 @@
   </table>
   <br>
 
-</div>
 </body>
 </html>

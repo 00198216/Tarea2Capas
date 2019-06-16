@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.domain.Empleado;
 import com.uca.capas.domain.Sucursal;
+import com.uca.capas.dto.SucursalDTO;
 import com.uca.capas.dto.logingDTO;
 import com.uca.capas.services.EmpleadoService;
 import com.uca.capas.services.SucursalService;
@@ -85,6 +86,33 @@ public class MainController {
 		return mav;
 	}
 	
+	
+	@RequestMapping(value="/Edit",method= RequestMethod.POST)
+	public ModelAndView Edit(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();	
+  	   mav.addObject("sucursalDTO",service2.MapDTO(id));
+		 mav.setViewName("Edit");
+		return mav;
+	}
+	
+	@RequestMapping(value="/SaveE",method= RequestMethod.POST)
+	public ModelAndView Edit(@Valid @ModelAttribute("sucursalDTO") SucursalDTO sucursalDTO ,BindingResult result){
+		ModelAndView mav = new ModelAndView();	
+		
+		if(result.hasErrors()) {
+	    	mav.setViewName("Edit");
+	       }	
+		
+		else {
+			service2.Update(sucursalDTO);
+			 List<Sucursal> sucursal = null;
+	  	     sucursal = service2.findALL();
+	  	     mav.addObject("sucursal", sucursal);
+			mav.setViewName("Mostrar");
+		}
+		
+		return mav;
+	}
 	
 	
 	

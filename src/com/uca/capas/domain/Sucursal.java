@@ -11,6 +11,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 
+import java.math.BigInteger;
 import java.sql.Time;
 import java.util.List;
 
@@ -37,7 +38,7 @@ public class Sucursal {
     private String Ubicacion;
 	
 	@Column(name="nMesas")
-    private Integer nMesas;
+    private BigInteger nMesas;
 	
 	@Column(name="nomGerente")
     private String nomGerente;
@@ -92,11 +93,11 @@ public class Sucursal {
 		Ubicacion = ubicacion;
 	}
 
-	public Integer getnMesas() {
+	public BigInteger getnMesas() {
 		return nMesas;
 	}
 
-	public void setnMesas(Integer nMesas) {
+	public void setnMesas(BigInteger nMesas) {
 		this.nMesas = nMesas;
 	}
 
