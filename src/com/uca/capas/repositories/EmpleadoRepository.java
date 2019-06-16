@@ -19,4 +19,10 @@ public interface EmpleadoRepository extends JpaRepository<Empleado, Integer> {
 				+ "where id_sucursal = ?1")
 	    public List<Empleado> findOne(int id);
 		
+		@Query(nativeQuery= true,value="select * "
+				+"from Empleado "
+				+ "where id_empleado = ?1")
+	    public Empleado findUser(int id);
+		
+		
 }

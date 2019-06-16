@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.uca.capas.domain.Empleado;
 import com.uca.capas.domain.Sucursal;
+import com.uca.capas.dto.EmpleadoDTO;
 import com.uca.capas.dto.SucursalDTO;
 import com.uca.capas.dto.logingDTO;
 import com.uca.capas.services.EmpleadoService;
@@ -68,7 +69,7 @@ public class MainController {
 		
 		List<Empleado> empleado = null;
  	     empleado = service3.findOne(id);
-		
+ 	    mav.addObject("EmpleadoDTO", new EmpleadoDTO());
  	    mav.addObject("empleado", empleado);
   	     mav.addObject("sucursal", sucursal);
 		 mav.setViewName("Main");
@@ -154,5 +155,60 @@ public class MainController {
 		
 		return mav;
 	}
+	
+	@RequestMapping(value="/BorrarE",method= RequestMethod.POST)
+	public ModelAndView DeleteE(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();	
+		Empleado emp= new Empleado();
+		emp=service3.findByID(id);
+		
+		Sucursal sucursal = null;
+		sucursal=service2.findBYID(emp.getSucursal().getIdSucursal());
+		
+		service3.deleteByID(id);
+				
+		
+		 List<Empleado> empleado = null;
+  	     empleado = service3.findOne(sucursal.getIdSucursal());
+  	     
+  	     mav.addObject("sucursal", sucursal);
+  	     mav.addObject("empleado", empleado);
+		 mav.setViewName("Main");
+		return mav;
+	}
+	
+	@RequestMapping(value="/EditE",method= RequestMethod.POST)
+	public ModelAndView EditE(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();	
+  	   mav.addObject("empleadoDTO",service3.MapDTO(id));
+		 mav.setViewName("EditE");
+		return mav;
+	}
+	
+	@RequestMapping(value="/EditEmpl",method= RequestMethod.POST)
+	public ModelAndView EditE2(@Valid @ModelAttribute("empleadoDTO") EmpleadoDTO empleadoDTO ,BindingResult result){
+		ModelAndView mav = new ModelAndView();	
+		
+		if(result.hasErrors()) {
+	    	mav.setViewName("EditE");
+	       }	
+		
+		else {
+			service3.Update(empleadoDTO);
+				
+				Sucursal sucursal = null;
+				sucursal=service2.findBYID(empleadoDTO.getIdSucursal());
+				
+			 List<Empleado> empleado = null;
+	  	     empleado = service3.findOne(sucursal.getIdSucursal());
+	  	     
+	  	     mav.addObject("sucursal", sucursal);
+	  	     mav.addObject("empleado", empleado);
+			 mav.setViewName("Main");
+		}
+		
+		return mav;
+	}
+	
 	
 }

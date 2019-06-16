@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Editar</title>
+<title>Editar Sucursal</title>
 </head>
 <body>
 
@@ -40,6 +40,7 @@
 		<label>Nombre Gerente: </label>
 		<form:input type="text" name="nomGerente" path="nomGerente" /><br>
 		<form:errors path="nomGerente" cssStyle="color:#E81505;"></form:errors><br>
+		
 		
 		
 		<input type="submit" value="Modificar Sucursal">

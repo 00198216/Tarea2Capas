@@ -57,13 +57,28 @@
          <tr>
            <th>${empleado.nombreE}</th>
            <th>${empleado.edad}</th>
-           <th>${empleado.genderE}</th>
-           <th>${empleado.estadoE}</th>
+          <th>${empleado.genderE}</th>
+           <th>${empleado.estadoE}</th>       
+            <th><form  name="edit" action="${pageContext.request.contextPath}/EditE" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${empleado.idEmpleado}>
+            <INPUT TYPE="Submit" VALUE="Editar Empleado">
+           </form></th>
+           <th><form  name="Borrar" action="${pageContext.request.contextPath}/BorrarE" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${empleado.idEmpleado}>
+            <INPUT TYPE="Submit" VALUE="Borrar Empleado">
+           </form></th>
          
            
        </tr>
        </c:forEach>
        </table>
+       
+        <br>
+       
+        <form  name="add" action="${pageContext.request.contextPath}/AddE" method="post">
+            <INPUT TYPE="Hidden" NAME="id" value=${sucursal.idSucursal}>
+            <INPUT TYPE="Submit" VALUE="Agregar Empleado">
+        </form>
        
        <br>
        
