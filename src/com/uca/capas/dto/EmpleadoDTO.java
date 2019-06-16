@@ -24,10 +24,10 @@ private Integer IdEmpleado ;
     @Range(min=18,max=75,message="Favor ingresar dentro del rango de 18 a 75")
     private BigInteger Edad;
 	
-    @NotEmpty(message="El genero es requerido")
+    @NotNull(message="El genero es requerido")
     private String Genero;
 	
-    @NotEmpty(message="El estado es requerido")
+    @NotNull(message="El estado es requerido")
     private String Estado;
     
     private Integer IdSucursal;

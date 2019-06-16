@@ -9,7 +9,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Agregar</title>
+<title>Agregar Sucursal</title>
 </head>
 <body>
 <form:form action="${pageContext.request.contextPath}/SaveA" method="POST" modelAttribute="sucursalDTO2">

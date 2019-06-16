@@ -13,6 +13,7 @@ import com.uca.capas.domain.Empleado;
 import com.uca.capas.domain.Sucursal;
 import com.uca.capas.dto.EmpleadoDTO;
 import com.uca.capas.repositories.EmpleadoRepository;
+import com.uca.capas.repositories.SucursalRepository;
 
 
 @Service
@@ -20,6 +21,10 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 
 	@Autowired
 	EmpleadoRepository Empleado;
+	
+
+	@Autowired
+	SucursalRepository Sucursal;
 	
 	@Autowired
 	 private EntityManager entityManager;
@@ -82,6 +87,29 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 		entityManager.merge(empleado);
 		entityManager.flush();
 		
+		return 1;
+	}
+
+
+	@Override
+	public EmpleadoDTO Associate(int id) throws DataAccessException {
+		EmpleadoDTO E = new EmpleadoDTO();
+		E.setIdSucursal(id);
+		return E;
+	}
+
+
+	@Override
+	@Transactional
+	public int Add(EmpleadoDTO E) throws DataAccessException {
+		Empleado empleado= new Empleado();
+		empleado.setNombreE(E.getNombreE());
+		empleado.setEdad(E.getEdad());
+		empleado.setGenero(E.getGeneroE());
+		empleado.setEstado(E.getEstadoE());
+		empleado.setSucursal(Sucursal.findOne(E.getIdSucursal()));
+		entityManager.persist(empleado);
+		entityManager.flush();
 		return 1;
 	}
 

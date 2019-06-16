@@ -77,7 +77,7 @@ public class MainController {
 	}
 	
 	@RequestMapping(value="/Return",method= RequestMethod.POST)
-	public ModelAndView back(@RequestParam(value="id") int id){
+	public ModelAndView back(){
 		ModelAndView mav = new ModelAndView();
 		
 		List<Sucursal> sucursal=null;
@@ -210,5 +210,37 @@ public class MainController {
 		return mav;
 	}
 	
+	@RequestMapping(value="/AddE",method= RequestMethod.POST)
+	public ModelAndView AddE(@RequestParam(value="id") int id){
+		ModelAndView mav = new ModelAndView();	
+  	   mav.addObject("empleadoDTO2",service3.Associate(id));
+		 mav.setViewName("AgregarE");
+		return mav;
+	}
 	
+	@RequestMapping(value="/SaveAE",method= RequestMethod.POST)
+	public ModelAndView Add3(@Valid @ModelAttribute("empleadoDTO2") EmpleadoDTO empleadoDTO2 ,BindingResult result){
+		ModelAndView mav = new ModelAndView();	
+		
+		if(result.hasErrors()) {
+	    	mav.setViewName("AgregarE");
+	       }	
+		
+		else {
+			service3.Add(empleadoDTO2);
+			Sucursal sucursal = null;
+			sucursal=service2.findBYID(empleadoDTO2.getIdSucursal());
+			
+		 List<Empleado> empleado = null;
+  	     empleado = service3.findOne(sucursal.getIdSucursal());
+  	     
+  	     mav.addObject("sucursal", sucursal);
+  	     mav.addObject("empleado", empleado);
+		 mav.setViewName("Main");
+
+
+		}
+		
+		return mav;
+	}
 }

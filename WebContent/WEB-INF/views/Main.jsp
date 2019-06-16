@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Main page</title>
+<title>Informacion Sucursal</title>
 </head>
 <body>
 <body >
