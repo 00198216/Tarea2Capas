@@ -133,7 +133,7 @@ button:hover {
 <br>
 <br>
 <br>
-<div style="background:white">
+
 <table border="1">
     
        <c:forEach items="${sucursal}" var="sucursal">
@@ -162,7 +162,7 @@ button:hover {
        
 
   </table>
-  </div>
+ 
   
 
 
