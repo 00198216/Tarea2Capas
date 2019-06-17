@@ -119,9 +119,17 @@ span.clave {
 </style>
 </head>
 <body style="background:linear-gradient(to right, darkblue ,cyan)">
-<div style="width:7%; margin-left: auto; margin-right: auto">
-<h1 style="padding-left:4px">Login</h1>
 
+<center>
+<div class="jumbotron jumbotron-fluid" style="background:#FAFAFA90">
+  <div class="container">
+    <h1 class="display-4">Login</h1>
+  </div>
+</div>
+<br>
+</center>
+
+<div style="width:7%; margin-left: auto; margin-right: auto">
 <button onclick="document.getElementById('id01').style.display='block'" style="background:blue">Login</button>
 </div>
 <div id="id01" class="modal">
