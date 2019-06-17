@@ -1,0 +1,16 @@
+Nombre: Carlos Sebastian Leal Echegoyen
+Carnet: 00198216
+
+-Nombre de la base: tareaNCapas
+dataSource.setUrl("jdbc:postgresql://127.0.0.1:5432/tareaNCapas");
+
+-Usuario de la base: postgres
+dataSource.setUsername("postgres");
+
+-Contraseña de la base: pass
+dataSource.setPassword("pass");
+
+Info de Login:
+
+Correo: Lucina@gmail.com
+Clave: Lucina
